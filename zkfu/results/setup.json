@@ -1,0 +1,28 @@
+{
+  "B": 32,
+  "C": 10,
+  "D": 64,
+  "FRAC": 16,
+  "K": 1,
+  "N": 2048,
+  "S": 8,
+  "breakdown": {
+    "all_samples_B": 204512,
+    "head_hashes_x2": 33668,
+    "head_rangecheck_and_hash_each": 16834,
+    "multiplications_fwd_grad": 41280,
+    "per_sample_leaf_rangecheck_merkle": 6391,
+    "poseidon2_compression": 186,
+    "remainder_overhead": -11291,
+    "trunc_fwd_each": 18,
+    "trunc_gb_each": 20,
+    "trunc_gw_each": 25,
+    "truncations_total": 21960
+  },
+  "compile_s": 0.336111459,
+  "constraints": 290129,
+  "pk_bytes": 117097087,
+  "public_inputs": 8,
+  "setup_s": 15.96312725,
+  "vk_bytes": 1488
+}

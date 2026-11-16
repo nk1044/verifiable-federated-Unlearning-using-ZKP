@@ -1,0 +1,477 @@
+{
+  "args": {
+    "name": "A05_audit",
+    "seed": 0,
+    "features": "cnn+grid",
+    "clients": 50,
+    "per_client": 1000,
+    "malicious": 10,
+    "benign_unlearn": 5,
+    "forget_frac": 0.02,
+    "fl_rounds": 20,
+    "fu_rounds": 20,
+    "audit_p": 0.05,
+    "on_catch": "rollback",
+    "attack": "fusion",
+    "target": 0,
+    "poison_frac": 0.1,
+    "rho": 0.1,
+    "beta": 0.2,
+    "lam": 0.5,
+    "ft_steps": 60,
+    "eval_every": 2,
+    "resume_fl": ""
+  },
+  "final_MA": 0.9371,
+  "final_BA": 0.03370288248337029,
+  "attack_success": false,
+  "FL_end": {
+    "round": 20,
+    "phase": "FL-end",
+    "MA": 0.9345,
+    "BA": 0.013636363636363636
+  },
+  "rounds_to_BA60": null,
+  "attack_prep": {
+    "ts_units": [
+      2,
+      21,
+      25,
+      42,
+      54,
+      63
+    ],
+    "gbd_BA": 1.0,
+    "subnet_BA": 1.0,
+    "S_bd_l2": 2.652540700925452
+  },
+  "malicious": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "flagged": [
+    1,
+    2,
+    3,
+    5,
+    7,
+    8,
+    9
+  ],
+  "caught_round": {
+    "1": 20,
+    "2": 20,
+    "3": 20,
+    "8": 26,
+    "9": 26,
+    "5": 29,
+    "7": 36
+  },
+  "TP": 7,
+  "FP": 0,
+  "rollbacks": 4,
+  "timing": {
+    "wall_s": 181.47294783592224,
+    "commit_s_once": 7.269939184188843,
+    "rounds": 40,
+    "native_total_s": 5.670274999999999,
+    "attacker_total_s": 0.860471248626709,
+    "proofs": 97,
+    "prove_s_mean": 1.4842200824742267,
+    "prove_s_std": 0.07096028118743178,
+    "witness_ms_mean": 113.03146391752577,
+    "client_proving_total_s": 154.9334,
+    "pk_load_total_s": 3.552034,
+    "compile_total_s": 12.829557,
+    "verify_ms_mean": 2.7657319587628866,
+    "server_verify_total_s": 0.268276,
+    "server_round_ms_mean": 18.753260374069214
+  },
+  "history": [
+    {
+      "round": 0,
+      "phase": "FL",
+      "audited": 2,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 3.74
+    },
+    {
+      "round": 1,
+      "phase": "FL",
+      "audited": 3,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 5.43,
+      "MA": 0.8667,
+      "BA": 0.026829268292682926
+    },
+    {
+      "round": 2,
+      "phase": "FL",
+      "audited": 2,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 3.86
+    },
+    {
+      "round": 3,
+      "phase": "FL",
+      "audited": 2,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 3.86,
+      "MA": 0.8918,
+      "BA": 0.019290465631929047
+    },
+    {
+      "round": 4,
+      "phase": "FL",
+      "audited": 3,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 5.35
+    },
+    {
+      "round": 5,
+      "phase": "FL",
+      "audited": 3,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 5.46,
+      "MA": 0.9024,
+      "BA": 0.017849223946784922
+    },
+    {
+      "round": 6,
+      "phase": "FL",
+      "audited": 2,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 3.82
+    },
+    {
+      "round": 7,
+      "phase": "FL",
+      "audited": 5,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 8.62,
+      "MA": 0.9091,
+      "BA": 0.019068736141906874
+    },
+    {
+      "round": 8,
+      "phase": "FL",
+      "audited": 1,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 2.28
+    },
+    {
+      "round": 9,
+      "phase": "FL",
+      "audited": 0,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 0.17,
+      "MA": 0.9186,
+      "BA": 0.01729490022172949
+    },
+    {
+      "round": 10,
+      "phase": "FL",
+      "audited": 0,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 0.17
+    },
+    {
+      "round": 11,
+      "phase": "FL",
+      "audited": 2,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 3.77,
+      "MA": 0.9225,
+      "BA": 0.01707317073170732
+    },
+    {
+      "round": 12,
+      "phase": "FL",
+      "audited": 4,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 6.83
+    },
+    {
+      "round": 13,
+      "phase": "FL",
+      "audited": 1,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 2.19,
+      "MA": 0.9261,
+      "BA": 0.014634146341463415
+    },
+    {
+      "round": 14,
+      "phase": "FL",
+      "audited": 2,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 3.73
+    },
+    {
+      "round": 15,
+      "phase": "FL",
+      "audited": 0,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 0.17,
+      "MA": 0.9298,
+      "BA": 0.014190687361419069
+    },
+    {
+      "round": 16,
+      "phase": "FL",
+      "audited": 2,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 3.68
+    },
+    {
+      "round": 17,
+      "phase": "FL",
+      "audited": 3,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 5.3,
+      "MA": 0.9329,
+      "BA": 0.013414634146341463
+    },
+    {
+      "round": 18,
+      "phase": "FL",
+      "audited": 5,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 8.79
+    },
+    {
+      "round": 19,
+      "phase": "FL",
+      "audited": 4,
+      "caught": [],
+      "accepted": 50,
+      "round_s": 7.1,
+      "MA": 0.9345,
+      "BA": 0.013636363636363636
+    },
+    {
+      "round": 20,
+      "phase": "FL-end",
+      "MA": 0.9345,
+      "BA": 0.013636363636363636
+    },
+    {
+      "round": 20,
+      "phase": "FU",
+      "audited": 5,
+      "caught": [
+        1,
+        2,
+        3
+      ],
+      "accepted": 47,
+      "round_s": 9.05
+    },
+    {
+      "round": 21,
+      "phase": "FU",
+      "audited": 1,
+      "caught": [],
+      "accepted": 47,
+      "round_s": 2.34,
+      "MA": 0.936,
+      "BA": 0.027494456762749447
+    },
+    {
+      "round": 22,
+      "phase": "FU",
+      "audited": 4,
+      "caught": [],
+      "accepted": 47,
+      "round_s": 6.85
+    },
+    {
+      "round": 23,
+      "phase": "FU",
+      "audited": 4,
+      "caught": [],
+      "accepted": 47,
+      "round_s": 7.14,
+      "MA": 0.9359,
+      "BA": 0.09722838137472284
+    },
+    {
+      "round": 24,
+      "phase": "FU",
+      "audited": 3,
+      "caught": [],
+      "accepted": 47,
+      "round_s": 5.76
+    },
+    {
+      "round": 25,
+      "phase": "FU",
+      "audited": 2,
+      "caught": [],
+      "accepted": 47,
+      "round_s": 4.03,
+      "MA": 0.9352,
+      "BA": 0.25853658536585367
+    },
+    {
+      "round": 26,
+      "phase": "FU",
+      "audited": 3,
+      "caught": [
+        8,
+        9
+      ],
+      "accepted": 45,
+      "round_s": 6.1
+    },
+    {
+      "round": 27,
+      "phase": "FU",
+      "audited": 2,
+      "caught": [],
+      "accepted": 45,
+      "round_s": 4.23,
+      "MA": 0.9364,
+      "BA": 0.024057649667405766
+    },
+    {
+      "round": 28,
+      "phase": "FU",
+      "audited": 4,
+      "caught": [],
+      "accepted": 45,
+      "round_s": 7.06
+    },
+    {
+      "round": 29,
+      "phase": "FU",
+      "audited": 2,
+      "caught": [
+        5
+      ],
+      "accepted": 44,
+      "round_s": 3.8,
+      "MA": 0.9345,
+      "BA": 0.013636363636363636
+    },
+    {
+      "round": 30,
+      "phase": "FU",
+      "audited": 2,
+      "caught": [],
+      "accepted": 44,
+      "round_s": 3.74
+    },
+    {
+      "round": 31,
+      "phase": "FU",
+      "audited": 2,
+      "caught": [],
+      "accepted": 44,
+      "round_s": 3.77,
+      "MA": 0.9349,
+      "BA": 0.03137472283813747
+    },
+    {
+      "round": 32,
+      "phase": "FU",
+      "audited": 1,
+      "caught": [],
+      "accepted": 44,
+      "round_s": 2.36
+    },
+    {
+      "round": 33,
+      "phase": "FU",
+      "audited": 5,
+      "caught": [],
+      "accepted": 44,
+      "round_s": 8.65,
+      "MA": 0.9352,
+      "BA": 0.07017738359201774
+    },
+    {
+      "round": 34,
+      "phase": "FU",
+      "audited": 3,
+      "caught": [],
+      "accepted": 44,
+      "round_s": 5.32
+    },
+    {
+      "round": 35,
+      "phase": "FU",
+      "audited": 3,
+      "caught": [],
+      "accepted": 44,
+      "round_s": 5.39,
+      "MA": 0.9355,
+      "BA": 0.12317073170731707
+    },
+    {
+      "round": 36,
+      "phase": "FU",
+      "audited": 1,
+      "caught": [
+        7
+      ],
+      "accepted": 43,
+      "round_s": 2.26
+    },
+    {
+      "round": 37,
+      "phase": "FU",
+      "audited": 1,
+      "caught": [],
+      "accepted": 43,
+      "round_s": 2.16,
+      "MA": 0.937,
+      "BA": 0.01951219512195122
+    },
+    {
+      "round": 38,
+      "phase": "FU",
+      "audited": 2,
+      "caught": [],
+      "accepted": 43,
+      "round_s": 3.95
+    },
+    {
+      "round": 39,
+      "phase": "FU",
+      "audited": 1,
+      "caught": [],
+      "accepted": 43,
+      "round_s": 2.18,
+      "MA": 0.9371,
+      "BA": 0.03370288248337029
+    }
+  ]
+}

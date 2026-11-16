@@ -1,0 +1,22 @@
+{
+  "compile_s": 0.335499083,
+  "constraints": 290129,
+  "cpus": 8,
+  "go_runtime_sys_peak_mb": 915.646952,
+  "goarch": "arm64",
+  "goos": "darwin",
+  "merkle_tree_build_ms": 109.443,
+  "native_step_ms_mean": 1.4751499999999997,
+  "pk_bytes": 117097087,
+  "pk_load_s": 0.101352417,
+  "proof_bytes": 196,
+  "prove_s_max": 1.650665916,
+  "prove_s_mean": 1.4394219980000003,
+  "prove_s_min": 1.383802542,
+  "prove_s_std": 0.061052919888894164,
+  "runs": 20,
+  "verify_ms_mean": 1.83325,
+  "verify_ms_std": 0.24061813626574366,
+  "vk_bytes": 1488,
+  "witness_build_ms_mean": 0.3726
+}

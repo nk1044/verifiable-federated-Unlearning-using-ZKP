@@ -1,0 +1,153 @@
+{
+  "args": {
+    "name": "F_full_proofs",
+    "seed": 0,
+    "features": "cnn+grid",
+    "clients": 50,
+    "per_client": 1000,
+    "malicious": 10,
+    "benign_unlearn": 5,
+    "forget_frac": 0.02,
+    "fl_rounds": 20,
+    "fu_rounds": 3,
+    "audit_p": 1.0,
+    "on_catch": "rollback",
+    "attack": "fusion",
+    "target": 0,
+    "poison_frac": 0.1,
+    "rho": 0.1,
+    "beta": 0.2,
+    "lam": 0.5,
+    "ft_steps": 60,
+    "eval_every": 1,
+    "resume_fl": "work/ckpt_fl_E0_noverify_fusion.json"
+  },
+  "final_MA": 0.9366,
+  "final_BA": 0.013082039911308204,
+  "attack_success": false,
+  "FL_end": {
+    "round": 20,
+    "phase": "FL-end",
+    "MA": 0.9345,
+    "BA": 0.013636363636363636
+  },
+  "rounds_to_BA60": null,
+  "attack_prep": {
+    "ts_units": [
+      2,
+      21,
+      25,
+      42,
+      54,
+      63
+    ],
+    "gbd_BA": 1.0,
+    "subnet_BA": 1.0,
+    "S_bd_l2": 2.652540700925452
+  },
+  "malicious": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "flagged": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "caught_round": {
+    "0": 20,
+    "1": 20,
+    "2": 20,
+    "3": 20,
+    "4": 20,
+    "5": 20,
+    "6": 20,
+    "7": 20,
+    "8": 20,
+    "9": 20
+  },
+  "TP": 10,
+  "FP": 0,
+  "rollbacks": 1,
+  "timing": {
+    "wall_s": 207.0639340877533,
+    "commit_s_once": 7.269939184188843,
+    "rounds": 3,
+    "native_total_s": 0.393452,
+    "attacker_total_s": 0.07901406288146973,
+    "proofs": 130,
+    "prove_s_mean": 1.4461948384615386,
+    "prove_s_std": 0.06585365165551728,
+    "witness_ms_mean": 112.83788461538462,
+    "client_proving_total_s": 202.674254,
+    "pk_load_total_s": 0.298536,
+    "compile_total_s": 1.017002,
+    "verify_ms_mean": 2.687123076923077,
+    "server_verify_total_s": 0.349326,
+    "server_round_ms_mean": 331.9149812062581
+  },
+  "history": [
+    {
+      "round": 20,
+      "phase": "FL-end",
+      "MA": 0.9345,
+      "BA": 0.013636363636363636
+    },
+    {
+      "round": 20,
+      "phase": "FU",
+      "audited": 50,
+      "caught": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "accepted": 40,
+      "round_s": 78.14,
+      "MA": 0.9345,
+      "BA": 0.013636363636363636
+    },
+    {
+      "round": 21,
+      "phase": "FU",
+      "audited": 40,
+      "caught": [],
+      "accepted": 40,
+      "round_s": 62.79,
+      "MA": 0.9349,
+      "BA": 0.013303769401330377
+    },
+    {
+      "round": 22,
+      "phase": "FU",
+      "audited": 40,
+      "caught": [],
+      "accepted": 40,
+      "round_s": 65.11,
+      "MA": 0.9366,
+      "BA": 0.013082039911308204
+    }
+  ]
+}

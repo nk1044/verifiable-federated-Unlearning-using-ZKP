@@ -1,0 +1,23 @@
+# Go build output
+/bin/
+
+# Groth16 keys: proving key is ~117 MB; regenerate with ./bin/setup -keys keys
+/keys/
+
+# Simulation cache: extractor weights, features, FL checkpoints, and the clients' PRIVATE
+# committed datasets (secret salts + data). Never commit these.
+/sim/work/
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs / timing scratch from run_experiments.sh (result JSONs and summary.md stay tracked)
+/results/*.time
+/results/run_all.log
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
