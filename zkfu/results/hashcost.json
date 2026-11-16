@@ -1,0 +1,14 @@
+{
+  "absorbs_in_circuit": 1170,
+  "circuit_total_poseidon2": 290129,
+  "projected_total": {
+    "mimc": 459194,
+    "poseidon2": 290129,
+    "sha256": 40092944
+  },
+  "two_to_one_hash": {
+    "mimc": 661,
+    "poseidon2": 372,
+    "sha256_64B": 68411
+  }
+}

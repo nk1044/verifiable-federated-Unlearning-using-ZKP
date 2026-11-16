@@ -1,0 +1,11 @@
+{
+  "load_mnist_s": 0.7759130001068115,
+  "extractor_pretrain_s": 2.120946168899536,
+  "feature_extraction_50k_s": 1.252120018005371,
+  "feature_extraction_10k_triggered_s": 0.23966193199157715,
+  "commit_one_client_total_s": 0.16305899620056152,
+  "commit_one_client_go_ms": 112.244,
+  "commit_50_clients_total_s": 7.269939184188843,
+  "fedavg_50_heads_ms": 1.035928726196289,
+  "evaluate_10k_ms": 1.589059829711914
+}
