@@ -20,7 +20,7 @@ import numpy as np
 import torch
 
 import gocli
-from common import C, D, N, WORK, accuracy, fedavg, head_in_range
+from common import C, D, N, ROOT, WORK, accuracy, fedavg, head_in_range
 from extractor import Extractor, add_trigger, load_mnist
 from fusion_head import FusionAttacker
 
@@ -234,8 +234,8 @@ def main():
         },
         "history": hist,
     }
-    (WORK.parent / "results").mkdir(exist_ok=True)
-    path = WORK.parent / "results" / f"{args.name}.json"
+    (ROOT / "results").mkdir(exist_ok=True)
+    path = ROOT / "results" / f"{args.name}.json"
     path.write_text(json.dumps(out, indent=2, default=str))
     print(f"[result] MA={ma:.3f} BA={ba:.3f} success={ba > 0.6} flagged={sorted(flagged)} "
           f"proofs={T['proofs']} wall={out['timing']['wall_s']:.0f}s -> {path}")

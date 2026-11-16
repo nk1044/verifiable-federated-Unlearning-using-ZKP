@@ -12,7 +12,7 @@ import random
 
 import numpy as np
 
-from common import B, C, D, N, ONE, S, WORK
+from common import B, C, D, N, ONE, ROOT, S, WORK
 
 
 def main():
@@ -54,8 +54,8 @@ def main():
         W = np.mean([h[0] for h in heads], 0)
         b = np.mean([h[1] for h in heads], 0)
     out["final_MA"] = acc()
-    (WORK.parent / "results").mkdir(exist_ok=True)
-    (WORK.parent / "results" / f"{a.name}.json").write_text(json.dumps(out, indent=2))
+    (ROOT / "results").mkdir(exist_ok=True)
+    (ROOT / "results" / f"{a.name}.json").write_text(json.dumps(out, indent=2))
     print(out)
 
 
