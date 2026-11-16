@@ -87,3 +87,73 @@ That is at most a 0.34-point drop, which disappears after unlearning.
 | **Poseidon2** | **372** | **0.29 M** |
 | MiMC | 661 | 0.46 M |
 | SHA-256 | 68,411 | about 40 M |
+
+---
+
+## Auditing results: attacker detection
+
+Setup: 50 clients (10 malicious FUsion attackers, 40 honest), 20 training + 20 unlearning rounds.
+An attacker counts as **detected** when one of its updates is audited and its proof fails; the
+server then flags it and excludes it from every later round.
+
+### Detection accuracy
+
+| Mode | Detected (TP) | Missed (FN) | False alarms (FP) | Detection rate (TPR) | False-alarm rate (FPR) | Precision | F1 | Accuracy (50 clients) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Prove every update (p = 100 %)** | **10** | 0 | 0 | **1.00** | 0.00 | 1.00 | **1.00** | **1.00** |
+| Audit 20 % | 10 | 0 | 0 | 1.00 | 0.00 | 1.00 | 1.00 | 1.00 |
+| Audit 10 % | 9 | 1 | 0 | 0.90 | 0.00 | 1.00 | 0.95 | 0.98 |
+| Audit 5 % | 7 | 3 | 0 | 0.70 | 0.00 | 1.00 | 0.82 | 0.94 |
+| No verification | 0 | 10 | 0 | 0.00 | 0.00 | – | – | – |
+
+**Zero false positives in every run:** no honest client was ever flagged, and every honest proof
+verified. Precision is always 1.0, because a failed proof is cryptographic evidence of cheating,
+not a statistical guess.
+
+### When attackers were caught, and what reached the model
+
+| Mode | First catch (FU round) | Last catch | Never caught | Rollbacks | Peak BA during FU | Final BA | Attack succeeded? | Proofs |
+|---|---:|---:|---|---:|---:|---:|:-:|---:|
+| **Prove every update** | 1 | 1 (all 10 at once) | none | 1 | 0.014 | **0.013** | no | 130 (3 FU rounds) |
+| Audit 20 %, rollback | 1 | 7 | none | 5 | 0.014 | **0.013** | no | 363 |
+| Audit 10 %, rollback | 1 | 17 | client 0 | 6 | 0.186 | **0.019** | no | 186 |
+| Audit 5 %, rollback | 1 | 17 | clients 0, 4, 6 | 4 | 0.259 | **0.034** | no | 97 |
+| Audit 10 %, **exclude only** | 1 | 17 | client 0 | 0 | 0.847 | **0.789** | **yes** | 186 |
+| No verification | – | – | all 10 | 0 | 1.000 | **1.000** | **yes** | 0 |
+
+Backdoor accuracy (BA) is the fraction of triggered test images classified as the attacker's
+target; the attack counts as successful when BA > 0.6. The clean baseline BA is about 0.01.
+
+**What this shows:**
+- **Proving every update** catches all 10 attackers the first time they patch an update, so the
+  backdoor never enters the model.
+- **Auditing with rollback** stops the backdoor at every audit rate. At low rates some attackers
+  are never caught, and the model is briefly partly backdoored between catches (peak BA 0.26 at
+  5 %, 0.19 at 10 %). Each catch rolls the model back, which wipes the uncaught attackers'
+  progress too.
+- **Auditing without rollback fails.** It used the exact same audit draws as the 10 % rollback
+  run and caught the same 9 attackers, yet the backdoor reached BA 0.789, because patches
+  aggregated before a catch stayed in the model.
+
+### Expected catch probability (formula P = 1 − (1 − p)^m)
+
+The attack needed **m = 6** patched rounds to succeed here; the ZK paper assumed m = 40.
+
+| Audit rate p | Catch one attacker within 6 rounds | Paper's figure (m = 40) | Catch one attacker within 20 FU rounds | Catch all 10 within 20 rounds | Proving saved |
+|---:|---:|---:|---:|---:|---:|
+| 5 % | 0.265 | 0.871 | 0.642 | 0.012 | 95 % |
+| 10 % | 0.469 | 0.985 | 0.878 | 0.274 | 90 % |
+| 20 % | 0.738 | 1.000 | 0.988 | 0.891 | 80 % |
+| 60 % | 0.996 | 1.000 | 1.000 | 1.000 | 40 % |
+| 100 % | 1.000 | 1.000 | 1.000 | 1.000 | 0 % |
+
+The measured detection rates (0.70, 0.90 and 1.00 at 5 %, 10 % and 20 %) match the
+"within 20 FU rounds" column.
+
+### Comparison with SubID (Part I, statistical detection)
+
+| Defence | Detection rate | False alarms | F1 | Basis |
+|---|---:|---:|---:|---|
+| SubID (Part I, 2 attackers of 10 clients) | 1.00 | 0.00 | 1.00 | statistical; needs attackers to be a minority |
+| Groth16, every update proved | 1.00 | 0.00 | 1.00 | cryptographic; certain |
+| Groth16 + 10 % audit | 0.90 | 0.00 | 0.95 | cryptographic; probabilistic coverage |
