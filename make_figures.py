@@ -1,4 +1,4 @@
-"""Generate every figure of final_report.tex from the raw result files (no hand-copied numbers).
+"""Generate every figure of report.tex from the raw result files (no hand-copied numbers).
 
     .venv/bin/python make_figures.py      ->  figures/*.pdf
 
